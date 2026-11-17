@@ -1,6 +1,9 @@
 'use strict';
 var App = angular.module('myApp',['ngRoute', 'ngFileUpload'])
-    .config(function($routeProvider, $httpProvider) {
+    .config(function($routeProvider, $httpProvider, $locationProvider) {
+
+        $locationProvider.hashPrefix('');
+
         $routeProvider.when('/', {
             templateUrl: 'pages/public/home.html',
             controller : 'dressListController'

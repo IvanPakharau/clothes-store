@@ -10,6 +10,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +26,10 @@ import static org.junit.Assert.*;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Sql(
+        scripts = "classpath:data.sql",
+        config = @SqlConfig(transactionMode = SqlConfig.TransactionMode.ISOLATED)
+)
 @ContextConfiguration(classes = DataConfig.class)
 @Rollback
 @Transactional
@@ -39,6 +45,7 @@ public abstract class BaseDaoGenericTest {
     public void setUp(){
         entity = getEntity();
         collection = getCollection();
+        List Entities = getDao().getAll();
         testId = ((BaseEntity)getDao().getAll().get(1)).getId();
     }
 

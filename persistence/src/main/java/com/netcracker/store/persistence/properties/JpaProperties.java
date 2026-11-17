@@ -15,5 +15,6 @@ import org.springframework.context.annotation.PropertySource;
 @ConfigurationProperties(prefix = "spring.jpa")
 public class JpaProperties {
     private String showSql;
-    private String databasePlatform;
+    private String hibernateDialect;
+    private String hibernateDdlAuto;
 }

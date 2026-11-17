@@ -70,8 +70,10 @@ public class DataConfig {
 
     private Properties getHibernateProperties() {
         Properties properties = new Properties();
+        //properties.put("spring.jpa.databasePlatform", jpaProperties.getDatabasePlatform());
         properties.put("hibernate.show_sql", jpaProperties.getShowSql());
-        properties.put("spring.jpa.databasePlatform", jpaProperties.getDatabasePlatform());
+        properties.put("hibernate.dialect", jpaProperties.getHibernateDialect());
+        properties.put("hibernate.hbm2ddl.auto", jpaProperties.getHibernateDdlAuto());
         return properties;
     }
 }
