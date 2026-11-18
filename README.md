@@ -1,7 +1,9 @@
 
 # Clothes Store
 
-SPA web application prototype for an online shopping platform, 
+SPA web application prototype for an online shopping platform.
+
+Developed as an individual course project during NetCracker's pre-employment training.
 
 ## Tech Stack
 
